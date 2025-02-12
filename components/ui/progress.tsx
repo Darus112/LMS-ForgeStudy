@@ -9,8 +9,8 @@ import { cn } from "@/lib/utils";
 const progressVariants = cva("h-full w-full flex-1 bg-primary transition-all", {
   variants: {
     variant: {
-      default: "bg-sky-600",
-      success: "bg-emerald-700",
+      default: "bg-lightblue",
+      success: "bg-[#50c878]",
     },
   },
   defaultVariants: {

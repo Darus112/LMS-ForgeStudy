@@ -4,17 +4,13 @@ import { Course } from "@prisma/client";
 import { ColumnDef } from "@tanstack/react-table";
 import Link from "next/link";
 
-import { ArrowUpDown, MoreHorizontal, Pencil } from "lucide-react";
+import { ArrowUpDown, Pencil } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+import ButtonMotion from "@/components/ui/button-motion";
 
 export const columns: ColumnDef<Course>[] = [
   {
@@ -71,7 +67,9 @@ export const columns: ColumnDef<Course>[] = [
       const isPublished = row.getValue("isPublished") || false;
 
       return (
-        <Badge className={cn("bg-slate-500", isPublished && "bg-sky-700")}>
+        <Badge
+          className={cn("bg-darkgray/80", isPublished && "bg-lightblue/90")}
+        >
           {isPublished ? "Published" : "Draft"}
         </Badge>
       );
@@ -83,22 +81,19 @@ export const columns: ColumnDef<Course>[] = [
       const { id } = row.original;
 
       return (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="h-4 w-8 p-0">
-              <span className="sr-only">Open menu</span>
-              <MoreHorizontal className="h-4 w-4" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <Link href={`/teacher/courses/${id}`}>
-              <DropdownMenuItem>
-                <Pencil className="h-4 w-4 mr-2" />
-                Edit
-              </DropdownMenuItem>
-            </Link>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <div className="w-full flex items-center">
+          <Link href={`/teacher/courses/${id}`}>
+            <ButtonMotion
+              icon={Pencil}
+              size="small"
+              color="darkblue"
+              text="darkblue"
+              iconSize="small"
+            >
+              Edit
+            </ButtonMotion>
+          </Link>
+        </div>
       );
     },
   },

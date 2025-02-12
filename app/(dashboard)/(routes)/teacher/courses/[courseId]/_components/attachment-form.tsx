@@ -6,8 +6,8 @@ import { File, Loader2, PlusCircle, X } from "lucide-react";
 import * as z from "zod";
 import axios from "axios";
 
-import { Button } from "@/components/ui/button";
 import { FileUpload } from "@/components/file-upload";
+import ButtonMotion from "@/components/ui/button-motion";
 
 import toast from "react-hot-toast";
 
@@ -60,18 +60,19 @@ export const AttachmentForm = ({
   };
 
   return (
-    <div className="mt-6 border bg-slate-100 rounded-md p-4">
+    <div className="mt-6 p-4 rounded-2xl shadow-[5px_5px_0px_0px_rgba(26,47,251)]">
       <div className="font-medium flex items-center justify-between">
-        Course attachments
-        <Button onClick={toggleEdit} variant="ghost">
-          {isEditing && <>Cancel</>}
-          {!isEditing && (
-            <>
-              <PlusCircle className="h-4 w-4 mr-2" />
-              Add an file
-            </>
-          )}
-        </Button>
+        <h1 className="text-xl font-medium">Course attachments</h1>
+        <ButtonMotion
+          icon={isEditing ? X : PlusCircle}
+          onClick={toggleEdit}
+          size="small"
+          iconSize="small"
+          color="darkblue"
+          text="darkblue"
+        >
+          {isEditing ? <>Cancel</> : <>Add an file</>}
+        </ButtonMotion>
       </div>
 
       {!isEditing && (
@@ -82,11 +83,11 @@ export const AttachmentForm = ({
             </p>
           )}
           {initialData.attachments.length > 0 && (
-            <div className="space-y-2">
+            <div className="space-y-2 mt-5">
               {initialData.attachments.map((attachment) => (
                 <div
                   key={attachment.id}
-                  className="flex items-center p-3 w-full bg-sky-100 border-x-sky-200 border text-sky-700 rounded-md gap-x-2"
+                  className="flex items-center p-3 w-full bg-lightblue/30 border-x-sky-200 border text-lightblack rounded-md gap-x-2 font-medium"
                 >
                   <File className="h-4 w-4 mr-2 flex-shrink-0" />
                   <p className="text-xs line-clamp-1">{attachment.name}</p>

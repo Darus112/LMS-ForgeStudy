@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Pencil } from "lucide-react";
+import { Check, Pencil, X } from "lucide-react";
 
 import * as z from "zod";
 import axios from "axios";
@@ -15,13 +15,13 @@ import {
   FormItem,
   FormMessage,
 } from "@/components/ui/form";
-import { Button } from "@/components/ui/button";
 
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Course } from "@prisma/client";
 import { Combobox } from "@/components/ui/combobox";
+import ButtonMotion from "@/components/ui/button-motion";
 
 interface CategoryFormProps {
   initialData: Course;
@@ -69,20 +69,19 @@ export const CategoryForm = ({
   );
 
   return (
-    <div className="mt-6 border bg-slate-100 rounded-md p-4">
+    <div className="mt-6 p-4 rounded-2xl shadow-[5px_5px_0px_0px_rgba(26,47,251)]">
       <div className="font-medium flex items-center justify-between">
-        Course category
-        <Button onClick={toggleEdit} variant="ghost">
-          {isEditing ? (
-            <>Cancel</>
-          ) : (
-            <>
-              {" "}
-              <Pencil className="h-4 w-4 mr-2" />
-              Edit category
-            </>
-          )}
-        </Button>
+        <h1 className="text-xl font-medium">Course title</h1>
+        <ButtonMotion
+          icon={isEditing ? X : Pencil}
+          onClick={toggleEdit}
+          size="small"
+          iconSize="small"
+          color="darkblue"
+          text="darkblue"
+        >
+          {isEditing ? <>Cancel</> : <>Edit category</>}
+        </ButtonMotion>
       </div>
       {!isEditing && (
         <p
@@ -117,9 +116,15 @@ export const CategoryForm = ({
               )}
             />
             <div className="flex items-center gap-x-2">
-              <Button disabled={!isValid || isSubmitting} type="submit">
+              <ButtonMotion
+                icon={Check}
+                disabled={!isValid || isSubmitting}
+                type="submit"
+                color="darkblue"
+                text="darkblue"
+              >
                 Save
-              </Button>
+              </ButtonMotion>
             </div>
           </form>
         </Form>

@@ -93,6 +93,21 @@ body,
   }
 }
 
+/* Chrome, Safari */
+.custom-scrollbar::-webkit-scrollbar {
+  height: 8px; /* Înălțimea scrollbar-ului */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f0f1fa; /* Culoarea fundalului scrollbar-ului */
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #141619;
+  border-radius: 3px;
+}
+
 .ql-container {
   font-size: 16px !important;
 }

@@ -55,7 +55,8 @@ const ChapterIdPage = async ({
           label="You need to purchase this course to watch this chapter."
         />
       )}
-      <div className="flex flex-col max-w-4xl mx-auto pb-20">
+      <div className="flex flex-col max-w-4xl mx-auto mt-8 z-20">
+        <Separator />
         <div className="p-4">
           <VideoPlayer
             chapterId={params.chapterId}
@@ -67,9 +68,10 @@ const ChapterIdPage = async ({
             completeOnEnd={completeOnEnd}
           />
         </div>
+        <Separator />
         <div>
-          <div className="p-4 flex flex-col md:flex-row items-center justify-between">
-            <h2 className="text-2xl font-semibold mb-2">{chapter.title}</h2>
+          <div className="p-4 pl-6 flex flex-col md:flex-row items-center justify-between mt-10">
+            <h2 className="text-5xl font-semibold mb-2">{chapter.title}</h2>
             {purchase ? (
               <CourseProgressButton
                 chapterId={params.chapterId}
@@ -84,28 +86,27 @@ const ChapterIdPage = async ({
               />
             )}
           </div>
-          <Separator />
-          <div>
+          <div className="bg-[#ffffff] rounded-lg border-b-4 border-lightblue mx-4">
             <Preview value={chapter.description!} />
           </div>
-          {!!attachments.length && (
-            <>
-              <Separator />
-              <div className="p-4">
+          <div className="w-full pt-10">
+            <h2 className="font-bold text-darkgray/60 pl-4">Attachments</h2>
+            {!!attachments.length && (
+              <div className="p-4 space-y-2 ">
                 {attachments.map((attachment) => (
                   <a
                     href={attachment.url}
                     target="_blank"
                     key={attachment.id}
-                    className="flex items-center p-3 w-ful bg-sky-200 border text-sky-700 rounded-md hover:underline"
+                    className="flex items-center p-4 w-full bg-lightblue/80  text-white rounded-md hover:underline gap-2"
                   >
                     <File />
                     <p className="line-clamp-1">{attachment.name}</p>
                   </a>
                 ))}
               </div>
-            </>
-          )}
+            )}
+          </div>
         </div>
       </div>
     </div>

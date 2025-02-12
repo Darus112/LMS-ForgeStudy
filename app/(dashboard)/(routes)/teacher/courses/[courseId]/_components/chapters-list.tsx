@@ -70,16 +70,15 @@ export const ChapterList = ({ items, onReorder, onEdit }: ChapterListProps) => {
                 {(provided) => (
                   <div
                     className={cn(
-                      "flex items-center gap-x-2 bg-slate-200 border-slate-200 border text text-slate-700 rounded-md mb-4 text-sm",
-                      chapter.isPublished &&
-                        "bg-sky-100 border-sky-200 text-sky-700"
+                      "flex items-center gap-x-2 bg-darkgray/20 text text-lightblack rounded-xl mb-4 text-sm font-medium",
+                      chapter.isPublished && "bg-lightblue/30"
                     )}
                     ref={provided.innerRef}
                     {...provided.draggableProps}
                   >
                     <div
                       className={cn(
-                        "px-2 py-3 border-r border-r-slate-200 hover:bg-slate-300 rounded-l-md transition",
+                        "px-2 py-3 border-r-4 border-r-white hover:bg-lightblue/40 hover:text-white rounded-l-xl transition",
                         chapter.isPublished &&
                           "border-r-sky-200 hover:bg-sky-200"
                       )}

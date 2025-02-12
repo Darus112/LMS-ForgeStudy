@@ -14,7 +14,7 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 import Link from "next/link";
-import { PlusCircle } from "lucide-react";
+import { Plus } from "lucide-react";
 
 import {
   Table,
@@ -27,6 +27,7 @@ import {
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import ButtonMotion from "@/components/ui/button-motion";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -59,24 +60,28 @@ export function DataTable<TData, TValue>({
 
   return (
     <div>
-      <div className="flex items-center py-4 justify-between">
+      <div className="flex items-center py-4 justify-between gap-5">
         <Input
           placeholder="Filter courses..."
           value={(table.getColumn("title")?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
             table.getColumn("title")?.setFilterValue(event.target.value)
           }
-          className="max-w-sm"
+          className="max-w-sm bg-white border-b-4 border-lightblue focus-visible:ring-0"
         />
         <Link href="/teacher/create">
-          <Button>
-            <PlusCircle className="h-4 w-4 mr-2" />
+          <ButtonMotion
+            icon={Plus}
+            size="small"
+            color="darkblue"
+            text="darkblue"
+          >
             New course
-          </Button>
+          </ButtonMotion>
         </Link>
       </div>
-      <div className="rounded-md border">
-        <Table>
+      <div className="">
+        <Table className="font-medium">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
@@ -127,6 +132,7 @@ export function DataTable<TData, TValue>({
       </div>
       <div className="flex items-center justify-end space-x-2 py-4">
         <Button
+          className="bg-lightblue text-white rounded-full border-none"
           variant="outline"
           size="sm"
           onClick={() => table.previousPage()}
@@ -135,6 +141,7 @@ export function DataTable<TData, TValue>({
           Previous
         </Button>
         <Button
+          className="bg-lightblue text-white rounded-full border-none"
           variant="outline"
           size="sm"
           onClick={() => table.nextPage()}

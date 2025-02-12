@@ -18,8 +18,9 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import ButtonMotion from "@/components/ui/button-motion";
+import { ArrowBigRight, X } from "lucide-react";
 const formSchema = z.object({
   title: z.string().min(1, {
     message: "Title is required",
@@ -48,10 +49,12 @@ const CreatePage = () => {
     }
   };
   return (
-    <div className="max-w-5xl mx-auto flex md:items-center md:justify-center h-full pp-6">
+    <div className="max-w-5xl mx-auto flex items-center justify-center h-full p-6 top-64 relative">
       <div>
-        <h1 className="text-2xl">Name your course</h1>
-        <p className="text-sm text-slate-600">
+        <h1 className="text-3xl font-semibold text-lightblack">
+          Name your course
+        </h1>
+        <p className="text-sm font-medium text-slate-400">
           What would you like to name your course? Don&apos;t worry, you can
           change this later.
         </p>
@@ -65,15 +68,18 @@ const CreatePage = () => {
               name="title"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Course title</FormLabel>
+                  <FormLabel className="text-lg text-lightblack">
+                    Course title
+                  </FormLabel>
                   <FormControl>
                     <Input
+                      className="bg-white border-b-4 border-lightblue focus-visible:ring-lightblue font-medium text-lightblack"
                       disabled={isSubmitting}
                       placeholder="e.g. 'Advanced web development'"
                       {...field}
                     />
                   </FormControl>
-                  <FormDescription>
+                  <FormDescription className="font-medium text-slate-400">
                     What will you teach in this course?
                   </FormDescription>
                   <FormMessage />
@@ -81,14 +87,20 @@ const CreatePage = () => {
               )}
             />
             <div className="flex items-center gap-x-2">
-              <Link href="/">
-                <Button type="button" variant="ghost">
+              <Link href="/teacher/courses">
+                <ButtonMotion icon={X} color="darkblue" text="darkblue">
                   Cancel
-                </Button>
+                </ButtonMotion>
               </Link>
-              <Button type="submit" disabled={!isValid || isSubmitting}>
+              <ButtonMotion
+                type="submit"
+                icon={ArrowBigRight}
+                color="darkblue"
+                text="darkblue"
+                disabled={!isValid || isSubmitting}
+              >
                 Continue
-              </Button>
+              </ButtonMotion>
             </div>
           </form>
         </Form>

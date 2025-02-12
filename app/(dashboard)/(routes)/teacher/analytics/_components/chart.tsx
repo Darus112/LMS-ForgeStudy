@@ -13,24 +13,24 @@ interface ChartProps {
 
 export const Chart = ({ data }: ChartProps) => {
   return (
-    <Card>
-      <ResponsiveContainer width="100%" height={350} className="pt-4">
+    <Card className="flex items-center justify-center">
+      <ResponsiveContainer width="100%" height={400} className="pt-4">
         <BarChart data={data}>
           <XAxis
             dataKey="name"
-            stroke="#888888"
-            fontSize={12}
+            stroke="#141619"
+            fontSize={14}
             tickLine={false}
             axisLine={false}
           />
           <YAxis
-            stroke="#888888"
-            fontSize={12}
+            stroke="#141619"
+            fontSize={14}
             tickLine={false}
             axisLine={false}
             tickFormatter={(value) => `${value} EUR`}
           />
-          <Bar dataKey="total" fill="#0369a1" radius={[4, 4, 0, 0]} />
+          <Bar dataKey="total" fill="#1A2FFB" radius={[60, 60, 60, 60]} />
         </BarChart>
       </ResponsiveContainer>
     </Card>

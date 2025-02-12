@@ -60,14 +60,14 @@ export const VideoPlayer = ({
   };
 
   return (
-    <div className="relative aspect-video">
+    <div className="relative aspect-video rounded-[30px] overflow-hidden shadow-[0px_0px_60px_-10px_rgba(51,_65,_85,_0.12)]">
       {!isReady && !isLocked && (
-        <div className="absolute inset-0 flex items-center justify-center bg-slate-800">
+        <div className="absolute inset-0 flex items-center justify-center bg-slate-800 rounded-[30px]">
           <Loader2 className="h-8 w-8 animate-spin text-secondary" />
         </div>
       )}
       {isLocked && (
-        <div className="absolute inset-0 flex items-center justify-center bg-slate-800 flex-col gap-y-2 text-secondary ">
+        <div className="absolute inset-0 flex items-center justify-center bg-slate-800 flex-col gap-y-2 text-secondary rounded-[30px]">
           <Lock className="h-8 w-8" />
           <p className="text-sm">This chapter is locked</p>
         </div>

@@ -1,15 +1,15 @@
 "use client";
 
 import React, { useState } from "react";
-import { Pencil, PlusCircle, Video } from "lucide-react";
+import { Check, Pencil, PlusCircle, Video } from "lucide-react";
 
 import * as z from "zod";
 import axios from "axios";
 
 import MuxPlayer from "@mux/mux-player-react";
 
-import { Button } from "@/components/ui/button";
 import { FileUpload } from "@/components/file-upload";
+import ButtonMotion from "@/components/ui/button-motion";
 
 import toast from "react-hot-toast";
 
@@ -51,42 +51,47 @@ export const ChapterVideoForm = ({
     }
   };
 
+  const getButtonIcon = () => {
+    if (isEditing) return Check;
+    if (!initialData.videoUrl) return PlusCircle;
+    return Pencil;
+  };
+
   return (
-    <div className="mt-6 border bg-slate-100 rounded-md p-4">
+    <div className="mt-6 p-4 rounded-2xl shadow-[5px_5px_0px_0px_rgba(26,47,251)]">
       <div className="font-medium flex items-center justify-between">
-        Chapter video
-        <Button onClick={toggleEdit} variant="ghost">
-          {isEditing && <>Cancel</>}
-          {!isEditing && !initialData.videoUrl && (
-            <>
-              <PlusCircle className="h-4 w-4 mr-2" />
-              Add a video
-            </>
-          )}
-          {!isEditing && initialData.videoUrl && (
-            <>
-              <Pencil className="h-4 w-4 mr-2" />
-              Edit video
-            </>
-          )}
-        </Button>
+        <h1 className="text-xl font-medium">Chapter video</h1>
+        <ButtonMotion
+          icon={getButtonIcon()}
+          onClick={toggleEdit}
+          size="small"
+          iconSize="small"
+          color="darkblue"
+          text="darkblue"
+        >
+          {isEditing
+            ? "Cancel"
+            : initialData.videoUrl
+            ? "Edit video"
+            : "Add a video"}
+        </ButtonMotion>
       </div>
 
       {!isEditing &&
         (!initialData.videoUrl ? (
-          <div className="flex items-center justify-center h-60 bg-slate-200 rounded-md">
-            <Video className="h-10 w-10 text-slate-500" />
+          <div className="flex items-center justify-center h-60 bg-lightblue/20 rounded-2xl mt-5">
+            <Video className="h-10 w-10 text-lightblack/80" />
           </div>
         ) : (
-          <div className="relative aspect-video mt-2">
+          <div className="relative aspect-video mt-5 rounded-3xl overflow-hidden">
             <MuxPlayer
               playbackId={initialData?.muxData?.playbackId || ""}
-              className="shadow-xl"
+              className="shadow-xl rounded-2xl"
             />
           </div>
         ))}
       {isEditing && (
-        <div>
+        <div className="mt-5">
           <FileUpload
             endpoint="chapterVideo"
             onChange={(file) => {

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Pencil } from "lucide-react";
+import { Check, Pencil, X } from "lucide-react";
 
 import * as z from "zod";
 import axios from "axios";
@@ -15,7 +15,7 @@ import {
   FormField,
   FormItem,
 } from "@/components/ui/form";
-import { Button } from "@/components/ui/button";
+import ButtonMotion from "@/components/ui/button-motion";
 
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
@@ -67,20 +67,19 @@ export const ChapterAccessForm = ({
   };
 
   return (
-    <div className="mt-6 border bg-slate-100 rounded-md p-4">
+    <div className="mt-6 p-4 rounded-2xl shadow-[5px_5px_0px_0px_rgba(26,47,251)]">
       <div className="font-medium flex items-center justify-between">
-        Chapter access
-        <Button onClick={toggleEdit} variant="ghost">
-          {isEditing ? (
-            <>Cancel</>
-          ) : (
-            <>
-              {" "}
-              <Pencil className="h-4 w-4 mr-2" />
-              Edit access
-            </>
-          )}
-        </Button>
+        <h1 className="text-xl font-medium">Chapter access</h1>
+        <ButtonMotion
+          icon={isEditing ? X : Pencil}
+          onClick={toggleEdit}
+          size="small"
+          iconSize="small"
+          color="darkblue"
+          text="darkblue"
+        >
+          {isEditing ? <>Cancel</> : <>Edit access</>}
+        </ButtonMotion>
       </div>
       {!isEditing && (
         <p className="text-slate-500 italic text-sm">
@@ -101,9 +100,10 @@ export const ChapterAccessForm = ({
               control={form.control}
               name="isFree"
               render={({ field }) => (
-                <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
+                <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md  p-4">
                   <FormControl>
                     <Checkbox
+                      className=" rounded-full w-5 h-5"
                       checked={field.value}
                       onCheckedChange={field.onChange}
                     />
@@ -117,9 +117,15 @@ export const ChapterAccessForm = ({
               )}
             />
             <div className="flex items-center gap-x-2">
-              <Button disabled={!isValid || isSubmitting} type="submit">
+              <ButtonMotion
+                icon={Check}
+                disabled={!isValid || isSubmitting}
+                type="submit"
+                color="darkblue"
+                text="darkblue"
+              >
                 Save
-              </Button>
+              </ButtonMotion>
             </div>
           </form>
         </Form>

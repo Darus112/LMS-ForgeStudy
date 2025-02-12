@@ -5,8 +5,9 @@ import axios from "axios";
 
 import toast from "react-hot-toast";
 
-import { Button } from "@/components/ui/button";
 import { formatPrice } from "@/lib/format";
+import ButtonMotion from "@/components/ui/button-motion";
+import { ShoppingBag } from "lucide-react";
 
 interface CourseEnrollButtonProps {
   price: number;
@@ -34,13 +35,8 @@ export const CourseEnrollButton = ({
   };
 
   return (
-    <Button
-      onClick={onClick}
-      disabled={isLoading}
-      size="sm"
-      className="w-full md:w-auto"
-    >
+    <ButtonMotion icon={ShoppingBag} onClick={onClick}>
       Enroll for {formatPrice(price)}
-    </Button>
+    </ButtonMotion>
   );
 };

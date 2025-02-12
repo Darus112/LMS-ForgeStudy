@@ -16,7 +16,7 @@ export const FileUpload = ({ onChange, endpoint }: FileUploadProps) => {
       endpoint={endpoint}
       onClientUploadComplete={(res) => {
         if (res && res.length > 0) {
-          const { url, name } = res[0]; // Extrage url și name din răspuns
+          const { url, name } = res[0];
           onChange({ url, name });
         }
       }}

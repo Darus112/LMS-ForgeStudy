@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import ButtonMotion from "@/components/ui/button-motion";
 import { useConfettiStore } from "@/hooks/use-confetti";
 import axios from "axios";
 
@@ -57,15 +57,13 @@ export const CourseProgressButton = ({
   const Icon = isCompleted ? XCircle : CheckCircle;
 
   return (
-    <Button
-      type="button"
-      disabled={isLoading}
-      variant={isCompleted ? "outline" : "success"}
-      className="w-full md:w-auto"
+    <ButtonMotion
+      icon={Icon}
       onClick={onClick}
+      color={isCompleted ? "grey" : "emerald"}
+      text={isCompleted ? "grey" : "emerald"}
     >
       {isCompleted ? "Not completed" : "Mark as complete"}
-      <Icon className="h-4 w-4 ml-2" />
-    </Button>
+    </ButtonMotion>
   );
 };

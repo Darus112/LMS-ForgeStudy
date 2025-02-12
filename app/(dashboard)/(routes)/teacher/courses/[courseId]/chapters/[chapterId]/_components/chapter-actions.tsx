@@ -1,11 +1,12 @@
 "use client";
+
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import axios from "axios";
 
 import { ConfirmModal } from "@/components/modals/confirm-modal";
-import { Button } from "@/components/ui/button";
-import { Trash } from "lucide-react";
+import ButtonMotion from "@/components/ui/button-motion";
+import { BookCheck, Trash } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 interface ChapterActionsProps {
@@ -67,18 +68,24 @@ export const ChapterActions = ({
 
   return (
     <div className="flex items-center gap-x-2">
-      <Button
+      <ButtonMotion
+        icon={BookCheck}
         onClick={onClick}
         disabled={disabled || isLoading}
-        variant="outline"
-        size="sm"
+        color="grey"
+        text="grey"
       >
         {isPublished ? "Unpublish" : "Publish"}
-      </Button>
+      </ButtonMotion>
       <ConfirmModal onConfirm={onDelete}>
-        <Button size="sm" disabled={isLoading}>
-          <Trash className="h-4 w-4" />
-        </Button>
+        <ButtonMotion
+          icon={Trash}
+          disabled={isLoading}
+          color="darkblue"
+          text="darkblue"
+        >
+          Delete
+        </ButtonMotion>
       </ConfirmModal>
     </div>
   );

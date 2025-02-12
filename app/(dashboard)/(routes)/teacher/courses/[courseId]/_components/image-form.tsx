@@ -1,12 +1,11 @@
 "use client";
 
 import React, { useState } from "react";
-import { ImageIcon, Pencil, PlusCircle } from "lucide-react";
+import { Check, ImageIcon, Pencil, PlusCircle } from "lucide-react";
 
 import * as z from "zod";
 import axios from "axios";
 
-import { Button } from "@/components/ui/button";
 import { FileUpload } from "@/components/file-upload";
 
 import toast from "react-hot-toast";
@@ -14,6 +13,7 @@ import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { Course } from "@prisma/client";
 import Image from "next/image";
+import ButtonMotion from "@/components/ui/button-motion";
 
 interface ImageFormProps {
   initialData: Course;
@@ -44,44 +44,49 @@ export const ImageForm = ({ initialData, courseId }: ImageFormProps) => {
     }
   };
 
+  const getButtonIcon = () => {
+    if (isEditing) return Check;
+    if (!initialData.imageUrl) return PlusCircle;
+    return Pencil;
+  };
+
   return (
-    <div className="mt-6 border bg-slate-100 rounded-md p-4">
+    <div className="mt-6 p-4 rounded-2xl shadow-[5px_5px_0px_0px_rgba(26,47,251)]">
       <div className="font-medium flex items-center justify-between">
-        Course image
-        <Button onClick={toggleEdit} variant="ghost">
-          {isEditing && <>Cancel</>}
-          {!isEditing && !initialData.imageUrl && (
-            <>
-              <PlusCircle className="h-4 w-4 mr-2" />
-              Add an image
-            </>
-          )}
-          {!isEditing && initialData.imageUrl && (
-            <>
-              <Pencil className="h-4 w-4 mr-2" />
-              Edit image
-            </>
-          )}
-        </Button>
+        <h1 className="text-xl font-medium">Course image</h1>
+        <ButtonMotion
+          icon={getButtonIcon()}
+          onClick={toggleEdit}
+          size="small"
+          iconSize="small"
+          color="darkblue"
+          text="darkblue"
+        >
+          {isEditing
+            ? "Cancel"
+            : initialData.imageUrl
+            ? "Edit image"
+            : "Add an image"}
+        </ButtonMotion>
       </div>
 
       {!isEditing &&
         (!initialData.imageUrl ? (
-          <div className="flex items-center justify-center h-60 bg-slate-200 rounded-md">
-            <ImageIcon className="h-10 w-10 text-slate-500" />
+          <div className="flex items-center justify-center h-60 bg-lightblue/20 rounded-2xl mt-5">
+            <ImageIcon className="h-10 w-10 text-lightblack/80" />
           </div>
         ) : (
-          <div className="relative aspect-video mt-2">
+          <div className="relative aspect-video mt-5">
             <Image
               alt="Upload"
               fill
-              className="object-cover rounded-md"
+              className="object-cover rounded-2xl"
               src={initialData.imageUrl}
             />
           </div>
         ))}
       {isEditing && (
-        <div>
+        <div className="mt-5">
           <FileUpload
             endpoint="courseImage"
             onChange={(file) => {

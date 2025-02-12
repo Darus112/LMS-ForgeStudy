@@ -22,9 +22,12 @@ const config: Config = withUt({
         sm: "calc(var(--radius) - 4px)",
       },
       colors: {
-        green: "#a8a646",
-        white: "#ffffff",
-        orange: "#bd5831",
+        lightgray: "#b3b4bd",
+        lightblue: "#1A2FFB",
+        darkblue: "#050a44",
+        darkgray: "#2c2e3a",
+        lightblack: "#141619",
+        white: "#F0F1FA",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {

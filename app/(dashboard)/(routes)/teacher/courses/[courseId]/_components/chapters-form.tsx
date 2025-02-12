@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Loader2, PlusCircle } from "lucide-react";
+import { Loader2, Plus, PlusCircle, X } from "lucide-react";
 
 import * as z from "zod";
 import axios from "axios";
@@ -15,8 +15,8 @@ import {
   FormItem,
   FormMessage,
 } from "@/components/ui/form";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import ButtonMotion from "@/components/ui/button-motion";
 
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
@@ -84,25 +84,24 @@ export const ChaptersForm = ({ initialData, courseId }: ChaptersFormProps) => {
   };
 
   return (
-    <div className="relative mt-6 border bg-slate-100 rounded-md p-4">
+    <div className="relative mt-6 p-4 rounded-2xl shadow-[5px_5px_0px_0px_rgba(26,47,251)]">
       {isUpdating && (
         <div className="absolute h-full w-full bg-slate-500/20 top-0 right-0 rounded-md flex items-center justify-center">
           <Loader2 className="animate-spin h-6 w-6 text-sky-700" />
         </div>
       )}
       <div className="font-medium flex items-center justify-between">
-        Course chapters
-        <Button onClick={toggleCreating} variant="ghost">
-          {isCreating ? (
-            <>Cancel</>
-          ) : (
-            <>
-              {" "}
-              <PlusCircle className="h-4 w-4 mr-2" />
-              Add a chapter
-            </>
-          )}
-        </Button>
+        <h1 className="text-xl font-medium">Course chapters</h1>
+        <ButtonMotion
+          icon={isCreating ? X : PlusCircle}
+          onClick={toggleCreating}
+          size="small"
+          iconSize="small"
+          color="darkblue"
+          text="darkblue"
+        >
+          {isCreating ? <>Cancel</> : <>Add a chapter</>}
+        </ButtonMotion>
       </div>
       {isCreating && (
         <Form {...form}>
@@ -117,6 +116,7 @@ export const ChaptersForm = ({ initialData, courseId }: ChaptersFormProps) => {
                 <FormItem>
                   <FormControl>
                     <Input
+                      className="bg-white border-b-4 border-lightblack"
                       disabled={isSubmitting}
                       placeholder="e.g. 'Introduction to the course'"
                       {...field}
@@ -126,9 +126,15 @@ export const ChaptersForm = ({ initialData, courseId }: ChaptersFormProps) => {
                 </FormItem>
               )}
             />
-            <Button disabled={!isValid || isSubmitting} type="submit">
+            <ButtonMotion
+              icon={Plus}
+              disabled={!isValid || isSubmitting}
+              type="submit"
+              color="darkblue"
+              text="darkblue"
+            >
               Create
-            </Button>
+            </ButtonMotion>
           </form>
         </Form>
       )}
