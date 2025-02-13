@@ -80,7 +80,7 @@ export function DataTable<TData, TValue>({
           </ButtonMotion>
         </Link>
       </div>
-      <div className="">
+      <div className="bg-white/80 rounded-3xl">
         <Table className="font-medium">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (

@@ -58,7 +58,7 @@ export const ChapterVideoForm = ({
   };
 
   return (
-    <div className="mt-6 p-4 rounded-2xl shadow-[5px_5px_0px_0px_rgba(26,47,251)]">
+    <div className="mt-6 p-4 rounded-2xl shadow-[5px_5px_0px_0px_rgba(26,47,251)] bg-white/80">
       <div className="font-medium flex items-center justify-between">
         <h1 className="text-xl font-medium">Chapter video</h1>
         <ButtonMotion
@@ -86,7 +86,7 @@ export const ChapterVideoForm = ({
           <div className="relative aspect-video mt-5 rounded-3xl overflow-hidden">
             <MuxPlayer
               playbackId={initialData?.muxData?.playbackId || ""}
-              className="shadow-xl rounded-2xl"
+              className="shadow-xl rounded-2xl w-full h-full"
             />
           </div>
         ))}

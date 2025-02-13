@@ -13,11 +13,12 @@ const AnalyticsPage = async () => {
     return redirect("/");
   }
 
-  const { data, totalRevenue, totalSales } = await getAnalytics(userId);
+  const { earningsData, salesData, totalRevenue, totalSales } =
+    await getAnalytics(userId);
 
   return (
     <div className="p-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-28">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-28 shadow-lg rounded-3xl border-2 border-lightblue/30">
         <DataCard
           label="Total Revenue"
           value={totalRevenue}
@@ -30,7 +31,10 @@ const AnalyticsPage = async () => {
           icon={ChartNoAxesGantt}
         />
       </div>
-      <Chart data={data} />
+      <div className="w-full h-full space-y-9">
+        <Chart data={earningsData} type="earnings" color="#5160F9" />
+        <Chart data={salesData} type="sales" color="#FDAA6A" />
+      </div>
     </div>
   );
 };

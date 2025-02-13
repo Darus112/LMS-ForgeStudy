@@ -23,7 +23,7 @@ export const CourseMobileSidebar = ({
       <SheetTrigger className="md:hidden p-2 bg-lightblue/80 rounded-full shadow-lg">
         <Ellipsis className="text-white" />
       </SheetTrigger>
-      <SheetContent side="left" className="p-0 bg-white w-full ">
+      <SheetContent side="left" className="p-0 bg-white w-2/3 border-none">
         <CourseSidebar course={course} progressCount={progressCount} />
       </SheetContent>
     </Sheet>

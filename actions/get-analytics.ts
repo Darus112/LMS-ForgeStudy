@@ -1,5 +1,4 @@
 import { db } from "@/lib/db";
-
 import { Course, Purchase } from "@prisma/client";
 
 type PurchaseWithCourse = Purchase & {
@@ -14,8 +13,7 @@ const groupByCourse = (purchases: PurchaseWithCourse[]) => {
     if (!grouped[courseTitle]) {
       grouped[courseTitle] = 0;
     }
-
-    grouped[courseTitle] += purchase.course.price!;
+    grouped[courseTitle] += 1;
   });
 
   return grouped;
@@ -34,26 +32,43 @@ export const getAnalytics = async (userId: string) => {
       },
     });
 
+    const groupedSales = groupByCourse(purchases);
     const groupedEarnings = groupByCourse(purchases);
-    const data = Object.entries(groupedEarnings).map(
+
+    const earningsData = Object.entries(groupedEarnings).map(
+      ([courseTitle, total]) => ({
+        name: courseTitle,
+        total:
+          total *
+          purchases.find((purchase) => purchase.course.title === courseTitle)
+            ?.course.price!,
+      })
+    );
+
+    const salesData = Object.entries(groupedSales).map(
       ([courseTitle, total]) => ({
         name: courseTitle,
         total: total,
       })
     );
 
-    const totalRevenue = data.reduce((acc, curr) => acc + curr.total, 0);
+    const totalRevenue = earningsData.reduce(
+      (acc, curr) => acc + curr.total,
+      0
+    );
     const totalSales = purchases.length;
 
     return {
-      data,
+      earningsData,
+      salesData,
       totalRevenue,
       totalSales,
     };
   } catch (error) {
     console.log("[GET_ANALYTICS]", error);
     return {
-      data: [],
+      earningsData: [],
+      salesData: [],
       totalRevenue: 0,
       totalSales: 0,
     };

@@ -86,19 +86,21 @@ const ChapterIdPage = async ({
               />
             )}
           </div>
-          <div className="bg-[#ffffff] rounded-lg border-b-4 border-lightblue mx-4">
+          <div className="mx-4">
             <Preview value={chapter.description!} />
           </div>
           <div className="w-full pt-10">
-            <h2 className="font-bold text-darkgray/60 pl-4">Attachments</h2>
             {!!attachments.length && (
               <div className="p-4 space-y-2 ">
+                <h2 className="font-semibold text-darkgray/60 pl-4">
+                  Attachments
+                </h2>
                 {attachments.map((attachment) => (
                   <a
                     href={attachment.url}
                     target="_blank"
                     key={attachment.id}
-                    className="flex items-center p-4 w-full bg-lightblue/80  text-white rounded-md hover:underline gap-2"
+                    className="flex items-center p-4 w-full bg-lightblue/80  text-white rounded-2xl hover:underline gap-2"
                   >
                     <File />
                     <p className="line-clamp-1">{attachment.name}</p>

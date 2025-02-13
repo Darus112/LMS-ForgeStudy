@@ -67,7 +67,7 @@ export const ChapterActions = ({
   };
 
   return (
-    <div className="flex items-center gap-x-2">
+    <div className="flex flex-col sm:flex-row items-center gap-2">
       <ButtonMotion
         icon={BookCheck}
         onClick={onClick}

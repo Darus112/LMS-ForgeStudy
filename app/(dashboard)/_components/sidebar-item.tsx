@@ -10,9 +10,15 @@ interface SidebarItemProps {
   icon: LucideIcon;
   label: string;
   href: string;
+  onClick?: () => void;
 }
 
-export const SidebarItem = ({ icon: Icon, label, href }: SidebarItemProps) => {
+export const SidebarItem = ({
+  icon: Icon,
+  label,
+  href,
+  onClick,
+}: SidebarItemProps) => {
   const pathname = usePathname();
   const router = useRouter();
 
@@ -21,13 +27,16 @@ export const SidebarItem = ({ icon: Icon, label, href }: SidebarItemProps) => {
     pathname === href ||
     pathname?.startsWith(`${href}/`);
 
-  const onClick = () => {
+  const handleClick = () => {
+    if (onClick) {
+      onClick();
+    }
     router.push(href);
   };
 
   return (
     <button
-      onClick={onClick}
+      onClick={handleClick}
       type="button"
       className={cn(
         "px-4 py-2 text-lightgray font-semibold hover:text-darkblue transition duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-bottom-right after:scale-x-0 after:bg-darkblue after:transition-transform after:duration-300 hover:after:origin-bottom-left hover:after:scale-x-100",

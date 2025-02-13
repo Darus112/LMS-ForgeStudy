@@ -35,22 +35,25 @@ export const CourseCard = ({
 
   return (
     <Link href={`/courses/${id}`}>
-      <div
-        className="group overflow-hidden p-4 h-full"
+      <motion.div
+        className="group p-4 h-full bg-white/80 rounded-2xl"
         onMouseEnter={() => setIsHover(true)}
         onMouseLeave={() => setIsHover(false)}
+        animate={{
+          scale: isHover ? 1.02 : 1,
+        }}
+        transition={{
+          ease: "easeIn",
+          duration: 0.15,
+        }}
       >
-        <motion.div
-          className="relative w-full aspect-video rounded-xl overflow-hidden"
-          animate={{
-            scale: isHover ? 1.06 : 1,
-          }}
-          transition={{
-            ease: "easeIn",
-            duration: 0.2,
-          }}
-        >
-          <Image fill className="object-cover" alt={title} src={imageUrl} />
+        <motion.div className="relative w-full aspect-video rounded-3xl overflow-hidden">
+          <Image
+            fill
+            className="object-cover absolute"
+            alt={title}
+            src={imageUrl}
+          />
         </motion.div>
         <div className="flex flex-col pt-2">
           <p className="text-sm font-medium text-muted-foreground">
@@ -83,8 +86,8 @@ export const CourseCard = ({
             </motion.div>
           </div>
 
-          <div className="my-3 flex items-center gap-x-2 text-sm md:text-xs">
-            <div className="flex items-center gap-x-1 text-slate-500">
+          <div className="my-3 flex items-center gap-x-2 text-sm">
+            <div className="flex items-center gap-x-1 text-lightblue">
               <IconBadge size="md" icon={BookOpen} />
               <span>
                 {chaptersLength} {chaptersLength === 1 ? "Chapter" : "Chapters"}
@@ -103,7 +106,7 @@ export const CourseCard = ({
             </p>
           )}
         </div>
-      </div>
+      </motion.div>
     </Link>
   );
 };

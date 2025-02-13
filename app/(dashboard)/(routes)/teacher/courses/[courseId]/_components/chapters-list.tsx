@@ -79,8 +79,7 @@ export const ChapterList = ({ items, onReorder, onEdit }: ChapterListProps) => {
                     <div
                       className={cn(
                         "px-2 py-3 border-r-4 border-r-white hover:bg-lightblue/40 hover:text-white rounded-l-xl transition",
-                        chapter.isPublished &&
-                          "border-r-sky-200 hover:bg-sky-200"
+                        chapter.isPublished && " hover:bg-lightblue/60"
                       )}
                       {...provided.dragHandleProps}
                     >

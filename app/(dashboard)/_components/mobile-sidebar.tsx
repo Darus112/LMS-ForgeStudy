@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { motion } from "framer-motion";
 
@@ -19,7 +19,7 @@ const variants = {
     width: "0vw",
     height: "0vh",
     top: "35px",
-    left: "35px",
+    left: "45px",
     transition: { duration: 0.75, ease: [0.76, 0, 0.24, 1] },
   },
 };
@@ -27,16 +27,28 @@ const variants = {
 export const MobileSidebar = () => {
   const [isActive, setIsActive] = useState(false);
 
+  useEffect(() => {
+    if (isActive) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+    return () => {
+      document.body.classList.remove("no-scroll");
+    };
+  }, [isActive]);
+
   return (
-    <div className="md:hidden h-full w-full  absolute left-0 ">
+    <div className="md:hidden h-full">
       <motion.div
-        className=" relative bg-lightblue/80 z-20 "
+        className="absolute z-20 overflow-hidden"
         variants={variants}
         animate={isActive ? "open" : "closed"}
         initial="closed"
       >
-        <Sidebar />
+        <Sidebar onClick={() => setIsActive(false)} />
       </motion.div>
+
       <div className="absolute top-6 left-6 ">
         <ButtonMobileSidebar isActive={isActive} setIsActive={setIsActive} />
       </div>

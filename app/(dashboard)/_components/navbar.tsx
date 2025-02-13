@@ -4,7 +4,7 @@ import NavbarRoutes from "@/components/navbar-routes";
 
 export const Navbar = () => {
   return (
-    <div className="p-4 h-full flex items-center bg-white ">
+    <div className="p-4 h-full flex items-center ">
       <MobileSidebar />
       <NavbarRoutes />
     </div>

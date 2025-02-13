@@ -38,7 +38,7 @@ export const SearchInput = () => {
   return (
     <div className="relative">
       <motion.div
-        className="absolute top-3 left-3 text-lightblack"
+        className="absolute top-1  text-lightblack"
         animate={{
           scale: isFocused ? 1.5 : 1,
           color: isFocused ? "#0a21c0" : "#6B7280",
@@ -48,15 +48,15 @@ export const SearchInput = () => {
           ease: "easeOut",
         }}
       >
-        <Search className="h-4 w-4" />
+        <Search className="h-8 w-8" />
       </motion.div>
       <Input
         onChange={(e) => setValue(e.target.value)}
         value={value}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
-        className="w-full md:w-[300px] pl-9 rounded-full bg-[#ffffff] focus-visible:ring-lightblue shadow-[0px_10px_40px_-6px_rgba(71,_85,_105,_0.08)] font-medium"
-        placeholder="Search for a course"
+        className="w-full md:w-[400px] pl-10 rounded-full bg-transparent focus-visible:ring-0 font-medium text-2xl"
+        placeholder="Search for a course..."
       />
     </div>
   );
