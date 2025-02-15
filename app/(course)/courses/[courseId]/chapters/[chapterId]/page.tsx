@@ -69,7 +69,7 @@ const ChapterIdPage = async ({
           />
         </div>
         <Separator />
-        <div>
+        <div className="bg-white/80 rounded-2xl m-4 ">
           <div className="p-4 pl-6 flex flex-col md:flex-row items-center justify-between mt-10">
             <h2 className="text-5xl font-semibold mb-2">{chapter.title}</h2>
             {purchase ? (

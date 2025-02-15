@@ -123,4 +123,22 @@ body.no-scroll {
   transition: all 0.3s ease-in-out;
 }
 
+.cl-internal-1dauvpw {
+  display: none;
+}
+
+.cl-internal-13u79ez {
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(14, 122, 184, 0.07),
+    rgba(18, 97, 243, 0.07) 6px,
+    rgba(18, 59, 243, 0.11) 6px,
+    rgba(18, 134, 243, 0.11) 12px
+  );
+}
+
+.cl-internal-17dpwu0 {
+  border-radius: 24px;
+}
+
 @import "~@uploadthing/react/styles.css";
