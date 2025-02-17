@@ -37,7 +37,7 @@ const NavbarRoutes = () => {
         <UserButton
           appearance={{
             elements: {
-              userButtonAvatarBox: "w-12 h-12",
+              userButtonAvatarBox: "w-10 h-10",
               userButtonPopoverFooter: "hidden",
               userButtonPopoverCard:
                 "rounded-3xl  border-2 border-lightblue/40",

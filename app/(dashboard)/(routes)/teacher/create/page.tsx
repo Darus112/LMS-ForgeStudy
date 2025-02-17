@@ -49,7 +49,7 @@ const CreatePage = () => {
     }
   };
   return (
-    <div className="max-w-5xl mx-auto flex items-center justify-center h-full p-6 top-64 relative">
+    <div className="max-w-5xl mx-4 md:mx-auto flex items-center justify-center h-full p-6 top-64 relative bg-white border-[1px] border-darkblue/20 rounded-sm">
       <div>
         <h1 className="text-3xl font-semibold text-lightblack">
           Name your course
@@ -73,7 +73,7 @@ const CreatePage = () => {
                   </FormLabel>
                   <FormControl>
                     <Input
-                      className="bg-white border-b-4 border-lightblue focus-visible:ring-lightblue font-medium text-lightblack"
+                      className="bg-white rounded-none border-b-[1px] border-lightblue focus-visible:ring-lightblue font-medium text-lightblack"
                       disabled={isSubmitting}
                       placeholder="e.g. 'Advanced web development'"
                       {...field}

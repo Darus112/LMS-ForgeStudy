@@ -16,10 +16,15 @@ const iconVariants = cva("", {
       md: "h-5 w-5",
       sm: "h-4 w-4",
     },
+    stroke: {
+      default: "stroke-2",
+      thin: "stroke-1",
+    },
   },
   defaultVariants: {
     variant: "default",
     size: "default",
+    stroke: "default",
   },
 });
 
@@ -29,6 +34,11 @@ interface IconBadgeProps extends IconVariantsProps {
   icon: LucideIcon;
 }
 
-export const IconBadge = ({ icon: Icon, variant, size }: IconBadgeProps) => {
-  return <Icon className={cn(iconVariants({ variant, size }))} />;
+export const IconBadge = ({
+  icon: Icon,
+  variant,
+  size,
+  stroke,
+}: IconBadgeProps) => {
+  return <Icon className={cn(iconVariants({ variant, size, stroke }))} />;
 };

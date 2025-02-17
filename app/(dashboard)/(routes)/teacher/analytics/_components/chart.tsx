@@ -15,7 +15,7 @@ interface BarChartProps {
 
 export const Chart = ({ data, type, color }: BarChartProps) => {
   return (
-    <Card className="flex items-center justify-center border-b-2 rounded-3xl border-lightblue/50 bg-white/80">
+    <Card className="flex items-center justify-center border-[1px] rounded-sm border-lightblue/10 bg-white">
       <ResponsiveContainer width="100%" height={400} className="pt-4">
         <BarChart data={data}>
           <XAxis
@@ -35,7 +35,7 @@ export const Chart = ({ data, type, color }: BarChartProps) => {
               type === "earnings" ? `${value} EUR` : `${value} Sales`
             }
           />
-          <Bar dataKey="total" fill={color} radius={[60, 60, 60, 60]} />
+          <Bar dataKey="total" fill={color} radius={[5, 5, 5, 5]} />
         </BarChart>
       </ResponsiveContainer>
     </Card>

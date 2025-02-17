@@ -42,15 +42,15 @@ export const CourseSidebarItem = ({
       type="button"
       className={cn(
         "px-4 py-2 text-lightgray font-semibold transition duration-300 relative",
-        "after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-bottom-right",
-        "after:scale-x-0 after:bg-darkblue after:transition-transform after:duration-300",
+        "after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-full after:origin-bottom-right",
+        "after:scale-x-0 after:bg-darkblue/40 after:transition-transform after:duration-300",
         "hover:after:origin-bottom-left hover:after:scale-x-100",
         isActive &&
           isCompleted &&
-          "text-[#50c878] bg-[#50c878]/10 hover:text-[#50c878] border-r-2 border-darkblue",
+          "text-[#50c878] bg-[#50c878]/10 hover:text-[#50c878] ",
         isActive &&
           !isCompleted &&
-          "text-darkblue bg-darkblue/10 hover:text-darkblue border-r-2 border-darkblue",
+          "text-darkblue bg-darkblue/10 hover:text-darkblue ",
         isCompleted && "hover:text-[#50c878]",
         !isCompleted && "hover:text-darkblue"
       )}

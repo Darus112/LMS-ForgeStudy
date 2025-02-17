@@ -99,22 +99,22 @@ body.no-scroll {
 
 /* Chrome, Safari */
 .custom-scrollbar::-webkit-scrollbar {
-  height: 8px; /* Înălțimea scrollbar-ului */
+  height: 6px; /* Înălțimea scrollbar-ului */
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
   background: #f0f1fa; /* Culoarea fundalului scrollbar-ului */
-  border-radius: 10px;
+  border-radius: 2px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #141619;
-  border-radius: 3px;
+  background: #c2c5c7;
+  border-radius: 2px;
 }
 
 .ql-container {
   font-family: "Raleway", sans-serif !important;
-  font-size: 19px !important;
+  font-size: 15px !important;
   font-weight: 400;
   color: #4e4e4e;
   line-height: 1.8;

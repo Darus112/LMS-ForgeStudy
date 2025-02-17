@@ -62,7 +62,7 @@ const ChapterIdPage = async ({
             <div className="flex items-center">
               <Link
                 href={`/teacher/courses/${params.courseId}`}
-                className="flex items-center text-sm hover:opacity-75 transition mb-6 bg-lightblue/20 p-2 rounded-full"
+                className="flex items-center text-sm hover:opacity-75 transition mb-6 p-2 rounded-sm"
               >
                 <ArrowLeft className="h-4 w-4" />
                 Back to course setup
@@ -70,7 +70,7 @@ const ChapterIdPage = async ({
             </div>
             <div className="flex items-center justify-between w-full">
               <div className="flex flex-col gap-y-2">
-                <h1 className="text-3xl font-bold">Chapter Creation</h1>
+                <h1 className="text-3xl font-medium">Chapter Creation</h1>
                 <span className="text-sm text-slate-700">
                   Complete all fields {completionText}
                 </span>

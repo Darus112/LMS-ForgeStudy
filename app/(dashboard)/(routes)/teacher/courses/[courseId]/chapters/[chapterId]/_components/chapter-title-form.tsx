@@ -66,7 +66,7 @@ export const ChapterTitleForm = ({
   };
 
   return (
-    <div className="mt-6 p-4 rounded-2xl shadow-[5px_5px_0px_0px_rgba(26,47,251)] bg-white/80">
+    <div className="mt-6 p-4 rounded-sm bg-white border-[1px] border-darkblue/20">
       <div className="font-medium flex items-center justify-between">
         <h1 className="text-xl font-medium">Chapter title</h1>
         <ButtonMotion
@@ -94,7 +94,7 @@ export const ChapterTitleForm = ({
                 <FormItem>
                   <FormControl>
                     <Input
-                      className="bg-white border-b-4 border-lightblack"
+                      className="bg-white border-b-2 rounded-sm border-lightblack"
                       disabled={isSubmitting}
                       placeholder="e.g. 'Introduction to the course'"
                       {...field}

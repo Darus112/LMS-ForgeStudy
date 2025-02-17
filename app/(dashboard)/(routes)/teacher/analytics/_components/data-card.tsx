@@ -16,20 +16,20 @@ export const DataCard = ({
   icon: Icon,
 }: DataCardProps) => {
   return (
-    <Card className="rounded-full bg-white pl-6 flex items-center gap-10 ">
+    <Card className=" pl-6 flex items-center">
+      <Icon className="h-12 w-12 text-lightblue stroke-1" />
       <div>
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-2xl font-bold text-lightblue/70">
+          <CardTitle className="text-2xl font-semibold text-lightblue/70">
             {label}
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="text-xl font-bold ">
+          <div className="text-lg ">
             {shouldFormat ? formatPrice(value) : value}
           </div>
         </CardContent>
       </div>
-      <Icon className="h-12 w-12 text-lightblue" />
     </Card>
   );
 };

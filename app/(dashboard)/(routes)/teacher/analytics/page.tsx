@@ -18,7 +18,7 @@ const AnalyticsPage = async () => {
 
   return (
     <div className="p-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-28 shadow-lg rounded-3xl border-2 border-lightblue/30">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12 rounded-md border-[1px] border-lightblue/20 bg-white">
         <DataCard
           label="Total Revenue"
           value={totalRevenue}

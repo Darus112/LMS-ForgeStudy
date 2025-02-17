@@ -36,11 +36,11 @@ export const SearchInput = () => {
   }, [debouncedValue, currentCategoryId, router, pathname]);
 
   return (
-    <div className="relative">
+    <div className="relative ml-2">
       <motion.div
-        className="absolute top-1  text-lightblack"
+        className="absolute top-2 text-lightblack"
         animate={{
-          scale: isFocused ? 1.5 : 1,
+          scale: isFocused ? 1.2 : 1,
           color: isFocused ? "#0a21c0" : "#6B7280",
         }}
         transition={{
@@ -48,15 +48,15 @@ export const SearchInput = () => {
           ease: "easeOut",
         }}
       >
-        <Search className="h-8 w-8" />
+        <Search className="h-6 w-6" />
       </motion.div>
       <Input
         onChange={(e) => setValue(e.target.value)}
         value={value}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
-        className="w-full md:w-[400px] pl-10 rounded-full bg-transparent focus-visible:ring-0 font-medium text-2xl"
-        placeholder="Search for a course..."
+        className="w-full md:w-[400px] pl-8 font-light bg-transparent focus-visible:ring-0 text-lg"
+        placeholder="Search for a course"
       />
     </div>
   );

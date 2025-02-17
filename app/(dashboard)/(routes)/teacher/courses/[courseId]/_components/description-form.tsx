@@ -66,7 +66,7 @@ export const DescriptionForm = ({
   };
 
   return (
-    <div className="mt-6 p-4 rounded-2xl shadow-[5px_5px_0px_0px_rgba(26,47,251)] bg-white/80">
+    <div className="mt-6 p-4 rounded-sm bg-white border-[1px] border-darkblue/20">
       <div className="font-medium flex items-center justify-between">
         <h1 className="text-xl font-medium">Course description</h1>
         <ButtonMotion

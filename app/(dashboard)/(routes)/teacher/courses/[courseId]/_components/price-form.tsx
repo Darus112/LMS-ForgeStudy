@@ -61,7 +61,7 @@ export const PriceForm = ({ initialData, courseId }: PriceFormProps) => {
   };
 
   return (
-    <div className="mt-6 p-4 rounded-2xl shadow-[5px_5px_0px_0px_rgba(26,47,251)] bg-white/80">
+    <div className="mt-6 p-4 rounded-sm bg-white border-[1px] border-darkblue/20">
       <div className="font-medium flex items-center justify-between">
         <h1 className="text-xl font-medium">Course price</h1>
         <ButtonMotion
@@ -98,7 +98,7 @@ export const PriceForm = ({ initialData, courseId }: PriceFormProps) => {
                 <FormItem>
                   <FormControl>
                     <Input
-                      className="border-b-4 border-lightblack bg-white"
+                      className="border-b-2 rounded-sm border-lightblack bg-white"
                       type="number"
                       step="0.01"
                       disabled={isSubmitting}

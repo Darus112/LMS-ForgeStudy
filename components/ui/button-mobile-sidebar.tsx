@@ -13,7 +13,7 @@ export default function ButtonMobileSidebar({
 }: ButtonMobileSidebarProps) {
   return (
     <div
-      className="h-[40px] w-[80px] rounded-full shadow-xl cursor-pointer relative overflow-hidden text-sm font-medium z-30"
+      className="h-[40px] w-[80px] rounded-sm  cursor-pointer relative overflow-hidden text-sm font-medium z-30"
       onClick={() => {
         setIsActive(!isActive);
       }}

@@ -18,8 +18,8 @@ interface ButtonProps {
 }
 
 const sizeClasses = {
-  small: "px-9 py-1 text-medium",
-  default: "px-9 py-3 text-base",
+  small: "px-8 py-1 text-medium",
+  default: "px-9 py-2 text-base",
 };
 
 const iconSizeClasses = {
@@ -79,7 +79,7 @@ const Button: React.FC<ButtonProps> = ({
       type={type}
       disabled={disabled}
       className={cn(
-        "flex items-center justify-center relative overflow-clip cursor-pointer rounded-full bg-[#ffffff] shadow-[0px_10px_27px_-14px_rgba(8,_11,_14,_0.06)]",
+        "flex items-center justify-center relative overflow-clip cursor-pointer rounded-sm bg-[#ffffff] border-[1px] transition-all",
         sizeClasses[size],
         disabled ? "opacity-30 cursor-not-allowed" : ""
       )}

@@ -23,7 +23,7 @@ export const Editor = ({ onChange, value }: EditorProps) => {
         theme="snow"
         value={value}
         onChange={onChange}
-        className="rounded-xl overflow-hidden border-2 border-b-8 border-lightblack"
+        className="rounded-sm overflow-hidden border-[1px] border-lightblack/20"
       />
     </div>
   );

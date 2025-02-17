@@ -1,4 +1,4 @@
-import { Ellipsis } from "lucide-react";
+import { AlignJustify } from "lucide-react";
 import { Chapter, Course, UserProgress } from "@prisma/client";
 
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -20,8 +20,8 @@ export const CourseMobileSidebar = ({
 }: CourseMobileSidebarProps) => {
   return (
     <Sheet>
-      <SheetTrigger className="md:hidden p-2 bg-lightblue/80 rounded-full shadow-lg">
-        <Ellipsis className="text-white" />
+      <SheetTrigger className="md:hidden">
+        <AlignJustify className="text-lightblue h-8 w-8 stroke-1" />
       </SheetTrigger>
       <SheetContent side="left" className="p-0 bg-white w-2/3 border-none">
         <CourseSidebar course={course} progressCount={progressCount} />
