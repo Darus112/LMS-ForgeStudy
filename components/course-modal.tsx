@@ -61,7 +61,7 @@ export const CourseModal = ({
           </div>
           <div className="flex gap-4 md:gap-x-20">
             <div className="flex flex-col gap-3">
-              <div className="w-60 h-32 sm:w-72 sm:h-40 relative">
+              <div className="w-44 h-24 sm:w-72 sm:h-40 relative">
                 <Image
                   src={imageUrl}
                   alt={title}
