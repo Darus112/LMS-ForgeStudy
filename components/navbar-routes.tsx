@@ -7,7 +7,7 @@ import { isTeacher } from "@/lib/teacher";
 
 import { SearchInput } from "./search-input";
 import ButtonMotion from "./ui/button-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, LogIn } from "lucide-react";
 
 const NavbarRoutes = () => {
   const { userId } = useAuth();
@@ -34,18 +34,27 @@ const NavbarRoutes = () => {
             <ButtonMotion icon={ArrowRight}>Teacher Mode</ButtonMotion>
           </Link>
         ) : null}
-        <UserButton
-          appearance={{
-            elements: {
-              userButtonAvatarBox: "w-10 h-10",
-              userButtonPopoverFooter: "hidden",
-              userButtonPopoverCard:
-                "rounded-3xl  border-2 border-lightblue/40",
-              userButtonPopoverMain: "bg-white",
-              userPreviewTextContainer: "text-lightblue font-medium",
-            },
-          }}
-        />
+
+        {!userId ? (
+          <Link href="/sign-in">
+            <ButtonMotion icon={LogIn} color="darkblue" text="darkblue">
+              Sign In
+            </ButtonMotion>
+          </Link>
+        ) : (
+          <UserButton
+            appearance={{
+              elements: {
+                userButtonAvatarBox: "w-10 h-10",
+                userButtonPopoverFooter: "hidden",
+                userButtonPopoverCard:
+                  "rounded-3xl  border-2 border-lightblue/40",
+                userButtonPopoverMain: "bg-white",
+                userPreviewTextContainer: "text-lightblue font-medium",
+              },
+            }}
+          />
+        )}
       </div>
     </>
   );

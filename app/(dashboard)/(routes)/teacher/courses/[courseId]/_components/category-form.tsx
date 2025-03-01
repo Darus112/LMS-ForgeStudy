@@ -71,7 +71,7 @@ export const CategoryForm = ({
   return (
     <div className="mt-6 p-4 rounded-sm bg-white border-[1px] border-darkblue/20">
       <div className="font-medium flex items-center justify-between">
-        <h1 className="text-xl font-medium">Course title</h1>
+        <h1 className="text-xl font-medium">Course category</h1>
         <ButtonMotion
           icon={isEditing ? X : Pencil}
           onClick={toggleEdit}

@@ -1,5 +1,4 @@
 import { auth } from "@clerk/nextjs/server";
-import { redirect } from "next/navigation";
 
 import { db } from "@/lib/db";
 
@@ -19,10 +18,6 @@ interface SearchPageProps {
 const SearchPage = async ({ searchParams }: SearchPageProps) => {
   const { userId } = auth();
 
-  if (!userId) {
-    return redirect("/");
-  }
-
   const categories = await db.category.findMany({
     orderBy: {
       name: "asc",
@@ -30,7 +25,7 @@ const SearchPage = async ({ searchParams }: SearchPageProps) => {
   });
 
   const courses = await getCourses({
-    userId,
+    userId: userId || "",
     ...searchParams,
   });
 

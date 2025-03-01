@@ -1,22 +1,9 @@
 "use client";
 
 import { BarChart, Compass, Layout, List } from "lucide-react";
-import React from "react";
 import { SidebarItem } from "./sidebar-item";
 import { usePathname } from "next/navigation";
-
-const guestRoutes = [
-  {
-    icon: Layout,
-    label: "Dashboard",
-    href: "/",
-  },
-  {
-    icon: Compass,
-    label: "Browse",
-    href: "/search",
-  },
-];
+import { useAuth } from "@clerk/nextjs";
 
 const teacherRoutes = [
   {
@@ -37,8 +24,25 @@ interface SidebarRoutesProps {
 
 export const SidebarRoutes = ({ closeSidebar }: SidebarRoutesProps) => {
   const pathname = usePathname();
+  const { userId } = useAuth();
 
   const isTeacherPage = pathname?.includes("/teacher");
+
+  const guestRoutes = [
+    {
+      icon: Compass,
+      label: "Browse",
+      href: "/search",
+    },
+  ];
+
+  if (userId) {
+    guestRoutes.unshift({
+      icon: Layout,
+      label: "Dashboard",
+      href: "/",
+    });
+  }
 
   const routes = isTeacherPage ? teacherRoutes : guestRoutes;
 

@@ -6,14 +6,11 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
       {" "}
       <Image
         src="/bg4.png"
-        alt="Background Image"
-        layout="fill"
-        objectFit="cover"
-        quality={100}
-        unoptimized={true}
-        priority={true}
+        fill
+        style={{ objectFit: "cover" }}
+        alt="Background"
       />
-      {children}
+      ;{children}
     </div>
   );
 };

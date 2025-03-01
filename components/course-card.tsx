@@ -1,16 +1,21 @@
 "use client";
 
+import { useState } from "react";
+
+import { formatPrice } from "@/lib/format";
+
 import Image from "next/image";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 import { motion } from "framer-motion";
 
 import { ArrowRight, BookOpen } from "lucide-react";
 
 import { IconBadge } from "@/components/icon-badge";
-import { formatPrice } from "@/lib/format";
 import { CourseProgress } from "@/components/course-progress";
-import { useState } from "react";
+
+import { CourseModal } from "./course-modal";
+import { useAuth } from "@clerk/nextjs";
 
 interface CourseCardProps {
   id: string;
@@ -20,6 +25,7 @@ interface CourseCardProps {
   price: number;
   progress: number | null;
   category: string;
+  description: string;
 }
 
 export const CourseCard = ({
@@ -30,15 +36,28 @@ export const CourseCard = ({
   price,
   progress,
   category,
+  description,
 }: CourseCardProps) => {
+  const { userId } = useAuth();
+
   const [isHover, setIsHover] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const router = useRouter();
+
+  const handleClick = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => setIsModalOpen(false);
 
   return (
-    <Link href={`/courses/${id}`}>
+    <>
       <motion.div
-        className="group h-full bg-white rounded-md border-[1px] border-darkblue/20 overflow-hidden"
+        className="group h-full bg-white rounded-md border-[1px] border-darkblue/20 overflow-hidden cursor-pointer"
         onMouseEnter={() => setIsHover(true)}
         onMouseLeave={() => setIsHover(false)}
+        onClick={handleClick}
       >
         <motion.div
           animate={{
@@ -104,6 +123,16 @@ export const CourseCard = ({
           )}
         </div>
       </motion.div>
-    </Link>
+      <CourseModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        title={title}
+        imageUrl={imageUrl}
+        chaptersLength={chaptersLength}
+        descritpion={description}
+        courseId={id}
+        progress={progress}
+      />
+    </>
   );
 };
