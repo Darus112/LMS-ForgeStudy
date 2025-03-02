@@ -38,7 +38,7 @@ export const SearchInput = () => {
   return (
     <div className="relative ml-2">
       <motion.div
-        className="absolute top-2 text-lightblack"
+        className="absolute top-2 left-2 text-lightblack"
         animate={{
           scale: isFocused ? 1.2 : 1,
           color: isFocused ? "#0a21c0" : "#6B7280",
@@ -55,7 +55,7 @@ export const SearchInput = () => {
         value={value}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
-        className="w-full md:w-[400px] pl-8 font-light bg-transparent focus-visible:ring-0 text-lg"
+        className="w-full lg:w-[400px] pl-10 font-light dark:bg-white/10 bg-dark/5 focus-visible:ring-0 text-lg"
         placeholder="Search for a course"
       />
     </div>

@@ -11,7 +11,6 @@ import { motion } from "framer-motion";
 
 import { ArrowRight, BookOpen } from "lucide-react";
 
-import { IconBadge } from "@/components/icon-badge";
 import { CourseProgress } from "@/components/course-progress";
 
 import { CourseModal } from "./course-modal";
@@ -54,7 +53,7 @@ export const CourseCard = ({
   return (
     <>
       <motion.div
-        className="group h-full bg-white rounded-md border-[1px] border-darkblue/20 overflow-hidden cursor-pointer"
+        className="group h-full bg-white dark:bg-dark rounded-md border-[1px] border-darkblue/20 dark:border-white/30 overflow-hidden cursor-pointer"
         onMouseEnter={() => setIsHover(true)}
         onMouseLeave={() => setIsHover(false)}
         onClick={handleClick}
@@ -72,10 +71,10 @@ export const CourseCard = ({
           <Image fill className="object-cover" alt={title} src={imageUrl} />
         </motion.div>
         <div className="flex flex-col p-2">
-          <p className="text-sm font-medium text-muted-foreground">
+          <p className="text-sm text-gray-500 font-medium text-muted-foreground">
             {category} &#x2022;
           </p>
-          <div className="text-lg md:text-2xl font-semibold group-hover:text-darkblue transition line-clamp-2">
+          <div className="text-lg dark:text-gray-300 md:text-2xl font-semibold  transition line-clamp-2">
             <motion.div
               className="relative"
               animate={{
@@ -103,8 +102,8 @@ export const CourseCard = ({
           </div>
 
           <div className="my-3 flex items-center gap-x-2 text-sm">
-            <div className="flex items-center gap-x-1 text-lightblue">
-              <IconBadge size="md" icon={BookOpen} />
+            <div className="flex items-center gap-x-1 text-lightblue dark:bg-white/5 dark:text-slate-500 p-1 rounded-md ">
+              <BookOpen className="h-5 w-5" />
               <span>
                 {chaptersLength} {chaptersLength === 1 ? "Chapter" : "Chapters"}
               </span>
@@ -117,7 +116,7 @@ export const CourseCard = ({
               value={progress}
             />
           ) : (
-            <p className="text-md md:text-sm font-medium text-slate-700">
+            <p className="text-md md:text-sm font-medium text-slate-700 dark:text-slate-300">
               {formatPrice(price)}
             </p>
           )}

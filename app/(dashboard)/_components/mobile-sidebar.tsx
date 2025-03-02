@@ -49,7 +49,7 @@ export const MobileSidebar = () => {
         <Sidebar onClick={() => setIsActive(false)} />
       </motion.div>
 
-      <div className="absolute top-6 left-6 ">
+      <div className="absolute top-5 left-7 ">
         <ButtonMobileSidebar isActive={isActive} setIsActive={setIsActive} />
       </div>
     </div>

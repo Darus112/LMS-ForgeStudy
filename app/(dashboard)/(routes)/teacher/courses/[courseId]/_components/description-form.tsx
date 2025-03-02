@@ -66,7 +66,7 @@ export const DescriptionForm = ({
   };
 
   return (
-    <div className="mt-6 p-4 rounded-sm bg-white border-[1px] border-darkblue/20">
+    <div className="mt-6 p-4 rounded-sm bg-white border-[1px] border-darkblue/20 dark:bg-dark dark:border-white/20">
       <div className="font-medium flex items-center justify-between">
         <h1 className="text-xl font-medium">Course description</h1>
         <ButtonMotion
@@ -74,8 +74,6 @@ export const DescriptionForm = ({
           onClick={toggleEdit}
           size="small"
           iconSize="small"
-          color="darkblue"
-          text="darkblue"
         >
           {isEditing ? <>Cancel</> : <> Edit description</>}
         </ButtonMotion>
@@ -103,7 +101,7 @@ export const DescriptionForm = ({
                 <FormItem>
                   <FormControl>
                     <Textarea
-                      className="border-b-4  border-lightblack"
+                      className="bg-dark/5 dark:bg-white/10 focus-visible:ring-0"
                       disabled={isSubmitting}
                       placeholder="e.g. 'This course is about...'"
                       {...field}
@@ -118,8 +116,6 @@ export const DescriptionForm = ({
                 icon={Check}
                 disabled={!isValid || isSubmitting}
                 type="submit"
-                color="darkblue"
-                text="darkblue"
               >
                 Save
               </ButtonMotion>

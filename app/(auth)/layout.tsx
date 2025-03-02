@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const AuthLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="h-full flex items-center justify-center">
+    <div className="h-full flex items-center justify-center bg-white dark:bg-dark">
       {" "}
       <Image
         src="/bg4.png"

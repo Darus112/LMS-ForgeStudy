@@ -103,7 +103,7 @@ body.no-scroll {
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: #f0f1fa; /* Culoarea fundalului scrollbar-ului */
+  background: transparent; /* Culoarea fundalului scrollbar-ului */
   border-radius: 2px;
 }
 
@@ -123,6 +123,24 @@ body.no-scroll {
   transition: all 0.3s ease-in-out;
 }
 
+.dark .ql-container {
+  color: #d1d5db;
+  border-color: #2d2d2d;
+}
+
+.ql-snow {
+  border: none;
+}
+
+.quill {
+  background-color: #e5e6ee;
+  border-radius: calc(var(--radius) - 2px);
+  border: none;
+}
+.dark .quill {
+  background-color: #2b2e31;
+}
+
 .cl-internal-1dauvpw {
   display: none;
 }
@@ -131,8 +149,20 @@ body.no-scroll {
   display: none;
 }
 
+.cl-internal-1p733cp {
+  background: #ffffff;
+}
+
+.dark .cl-internal-1p733cp {
+  background: #e4e7ff;
+}
+
 .cl-internal-4x6jej {
-  background: #f0f1fa80;
+  background: #f0f1fa;
+}
+
+.dark .cl-internal-4x6jej {
+  background: #ffffff;
 }
 
 .cl-internal-13u79ez {

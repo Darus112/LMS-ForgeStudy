@@ -72,18 +72,11 @@ export const ChapterActions = ({
         icon={BookCheck}
         onClick={onClick}
         disabled={disabled || isLoading}
-        color="grey"
-        text="grey"
       >
         {isPublished ? "Unpublish" : "Publish"}
       </ButtonMotion>
       <ConfirmModal onConfirm={onDelete}>
-        <ButtonMotion
-          icon={Trash}
-          disabled={isLoading}
-          color="darkblue"
-          text="darkblue"
-        >
+        <ButtonMotion icon={Trash} disabled={isLoading}>
           Delete
         </ButtonMotion>
       </ConfirmModal>

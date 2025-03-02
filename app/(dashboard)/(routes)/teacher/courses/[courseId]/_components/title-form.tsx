@@ -60,7 +60,7 @@ export const TitleForm = ({ initialData, courseId }: TitleFormProps) => {
   };
 
   return (
-    <div className="mt-6 p-4 rounded-sm bg-white border-[1px] border-darkblue/20">
+    <div className="mt-6 p-4 rounded-sm bg-white dark:bg-dark dark:border-white/20 border-[1px] border-darkblue/20">
       <div className="font-medium flex items-center justify-between">
         <h1 className="text-xl font-medium">Course title</h1>
         <ButtonMotion
@@ -68,8 +68,6 @@ export const TitleForm = ({ initialData, courseId }: TitleFormProps) => {
           onClick={toggleEdit}
           size="small"
           iconSize="small"
-          color="darkblue"
-          text="darkblue"
         >
           {isEditing ? <>Cancel</> : <>Edit title</>}
         </ButtonMotion>
@@ -88,7 +86,7 @@ export const TitleForm = ({ initialData, courseId }: TitleFormProps) => {
                 <FormItem>
                   <FormControl>
                     <Input
-                      className="bg-white border-b-2 rounded-sm border-lightblack"
+                      className="bg-dark/5 dark:bg-white/10 rounded-md focus-visible:ring-0"
                       disabled={isSubmitting}
                       placeholder="e.g. 'Advanced web development'"
                       {...field}
@@ -103,8 +101,6 @@ export const TitleForm = ({ initialData, courseId }: TitleFormProps) => {
                 icon={Check}
                 disabled={!isValid || isSubmitting}
                 type="submit"
-                color="darkblue"
-                text="darkblue"
               >
                 Save
               </ButtonMotion>

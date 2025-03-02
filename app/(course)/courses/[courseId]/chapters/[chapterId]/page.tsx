@@ -69,9 +69,11 @@ const ChapterIdPage = async ({
           />
         </div>
         <Separator />
-        <div className="bg-white border-[1px] border-darkblue/20 rounded-md m-4">
+        <div className="bg-white dark:bg-dark border-[1px] border-darkblue/20 dark:border-white/20 rounded-md m-4">
           <div className="p-4 pl-6 flex flex-col md:flex-row items-center justify-between mt-10">
-            <h2 className="text-2xl font-semibold mb-2">{chapter.title}</h2>
+            <h2 className="text-2xl font-semibold mb-2 dark:text-gray-300">
+              {chapter.title}
+            </h2>
             {purchase ? (
               <CourseProgressButton
                 chapterId={params.chapterId}
@@ -86,20 +88,22 @@ const ChapterIdPage = async ({
               />
             )}
           </div>
-          <div className="mx-4">
+          <div className="m-4">
             <Preview value={chapter.description!} />
           </div>
         </div>
 
         {!!attachments.length && (
-          <div className="p-4 space-y-2 bg-white border-[1px] border-darkblue/20 rounded-md m-4">
-            <h2 className="text-darkgray/60 pl-4">Attachments</h2>
+          <div className="p-4 space-y-2 bg-white dark:bg-dark border-[1px] dark:border-white/20 border-darkblue/20 rounded-md m-4">
+            <h2 className="text-darkgray/60 dark:text-gray-300 pl-4">
+              Attachments
+            </h2>
             {attachments.map((attachment) => (
               <a
                 href={attachment.url}
                 target="_blank"
                 key={attachment.id}
-                className="flex items-center p-2 w-full text-lightblue/70 rounded-md hover:underline gap-2 border-[1px] border-darkblue/20 bg-lightblue/5 text-sm"
+                className="flex items-center p-2 w-full text-lightblue/70 dark:text-gray-400 rounded-md hover:underline gap-2 border-[1px] border-darkblue/20  bg-lightblue/5 dark:bg-[#2B2E31] dark:border-none text-sm"
               >
                 <File />
                 <p className="line-clamp-1">{attachment.name}</p>

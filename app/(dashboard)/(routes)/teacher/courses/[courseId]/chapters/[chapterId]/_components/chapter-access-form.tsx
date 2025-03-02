@@ -67,7 +67,7 @@ export const ChapterAccessForm = ({
   };
 
   return (
-    <div className="mt-6 p-4 rounded-sm bg-white border-[1px] border-darkblue/20">
+    <div className="mt-6 p-4 rounded-sm bg-white border-[1px] border-darkblue/20 dark:bg-dark dark:border-white/20">
       <div className="font-medium flex items-center justify-between">
         <h1 className="text-xl font-medium">Chapter access</h1>
         <ButtonMotion
@@ -75,8 +75,6 @@ export const ChapterAccessForm = ({
           onClick={toggleEdit}
           size="small"
           iconSize="small"
-          color="darkblue"
-          text="darkblue"
         >
           {isEditing ? <>Cancel</> : <>Edit access</>}
         </ButtonMotion>
@@ -121,8 +119,6 @@ export const ChapterAccessForm = ({
                 icon={Check}
                 disabled={!isValid || isSubmitting}
                 type="submit"
-                color="darkblue"
-                text="darkblue"
               >
                 Save
               </ButtonMotion>

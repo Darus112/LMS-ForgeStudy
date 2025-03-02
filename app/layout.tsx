@@ -6,6 +6,8 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { ToasterProvider } from "@/components/providers/toaster-provider";
 import { ConfettiProvider } from "@/components/providers/confetti-provider";
 
+import { ThemeProvider } from "next-themes";
+
 const raleway = Raleway({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -20,11 +22,13 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider afterSignOutUrl="/">
-      <html lang="en">
+      <html lang="en" suppressHydrationWarning>
         <body className={raleway.className}>
           <ConfettiProvider />
           <ToasterProvider />
-          {children}
+          <ThemeProvider attribute="class" enableSystem defaultTheme="system">
+            {children}
+          </ThemeProvider>
         </body>
       </html>
     </ClerkProvider>

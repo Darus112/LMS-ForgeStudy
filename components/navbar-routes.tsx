@@ -8,6 +8,7 @@ import { isTeacher } from "@/lib/teacher";
 import { SearchInput } from "./search-input";
 import ButtonMotion from "./ui/button-motion";
 import { ArrowRight, LogIn } from "lucide-react";
+import { ThemeToggle } from "./theme-toggle";
 
 const NavbarRoutes = () => {
   const { userId } = useAuth();
@@ -37,9 +38,7 @@ const NavbarRoutes = () => {
 
         {!userId ? (
           <Link href="/sign-in">
-            <ButtonMotion icon={LogIn} color="darkblue" text="darkblue">
-              Sign In
-            </ButtonMotion>
+            <ButtonMotion icon={LogIn}>Sign In</ButtonMotion>
           </Link>
         ) : (
           <UserButton
@@ -55,6 +54,7 @@ const NavbarRoutes = () => {
             }}
           />
         )}
+        <ThemeToggle />
       </div>
     </>
   );

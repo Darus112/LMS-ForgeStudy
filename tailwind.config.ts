@@ -27,6 +27,7 @@ const config: Config = withUt({
         darkblue: "#050a44",
         darkgray: "#2c2e3a",
         lightblack: "#141619",
+        dark: "#15171B",
         white: "#F0F1FA",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",

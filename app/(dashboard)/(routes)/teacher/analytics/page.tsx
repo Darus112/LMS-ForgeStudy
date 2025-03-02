@@ -18,7 +18,7 @@ const AnalyticsPage = async () => {
 
   return (
     <div className="p-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12 rounded-md border-[1px] border-lightblue/20 bg-white">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12 rounded-md border-[1px] border-lightblue/20 dark:border-white/20 bg-white dark:bg-dark">
         <DataCard
           label="Total Revenue"
           value={totalRevenue}
@@ -32,8 +32,8 @@ const AnalyticsPage = async () => {
         />
       </div>
       <div className="w-full h-full space-y-9">
-        <Chart data={earningsData} type="earnings" color="#5160F9" />
-        <Chart data={salesData} type="sales" color="#FDAA6A" />
+        <Chart data={earningsData} type="earnings" color="#626C91" />
+        <Chart data={salesData} type="sales" color="#3FB1E3" />
       </div>
     </div>
   );

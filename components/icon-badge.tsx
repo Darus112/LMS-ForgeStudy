@@ -6,8 +6,8 @@ import { cn } from "@/lib/utils";
 const iconVariants = cva("", {
   variants: {
     variant: {
-      default: "text-lightblue",
-      success: "text-[#50c878]",
+      default: "text-lightblue dark:text-slate-400",
+      success: "text-[#50c878] dark:text-slate-100",
     },
     size: {
       default: "h-8 w-8",

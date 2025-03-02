@@ -49,9 +49,9 @@ const CreatePage = () => {
     }
   };
   return (
-    <div className="max-w-5xl mx-4 md:mx-auto flex items-center justify-center h-full p-6 top-64 relative bg-white border-[1px] border-darkblue/20 rounded-sm">
+    <div className="max-w-5xl mx-4 md:mx-auto flex items-center justify-center h-full p-6 top-64 relative bg-white dark:bg-dark border-[1px] border-darkblue/20 dark:border-white/20 rounded-sm">
       <div>
-        <h1 className="text-3xl font-semibold text-lightblack">
+        <h1 className="text-3xl font-semibold text-lightblack dark:text-gray-200">
           Name your course
         </h1>
         <p className="text-sm font-medium text-slate-400">
@@ -68,12 +68,12 @@ const CreatePage = () => {
               name="title"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-lg text-lightblack">
+                  <FormLabel className="text-lg text-lightblack dark:text-gray-200">
                     Course title
                   </FormLabel>
                   <FormControl>
                     <Input
-                      className="bg-white rounded-none border-b-[1px] border-lightblue focus-visible:ring-lightblue font-medium text-lightblack"
+                      className="bg-dark/5 dark:bg-white/5 focus-visible:ring-0 font-medium text-lightblack dark:text-gray-100"
                       disabled={isSubmitting}
                       placeholder="e.g. 'Advanced web development'"
                       {...field}
@@ -88,15 +88,11 @@ const CreatePage = () => {
             />
             <div className="flex items-center gap-x-2">
               <Link href="/teacher/courses">
-                <ButtonMotion icon={X} color="darkblue" text="darkblue">
-                  Cancel
-                </ButtonMotion>
+                <ButtonMotion icon={X}>Cancel</ButtonMotion>
               </Link>
               <ButtonMotion
                 type="submit"
                 icon={ArrowBigRight}
-                color="darkblue"
-                text="darkblue"
                 disabled={!isValid || isSubmitting}
               >
                 Continue

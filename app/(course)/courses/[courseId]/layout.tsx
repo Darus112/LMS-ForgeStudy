@@ -1,7 +1,5 @@
 import React from "react";
 
-import Image from "next/image";
-
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 
@@ -10,6 +8,7 @@ import { getProgress } from "@/actions/get-progress";
 
 import { CourseSidebar } from "./_components/course-sidebar";
 import { CourseNavbar } from "./_components/course-navbar";
+import { ImageToggle } from "./_components/image-toggle";
 
 const CourseLayout = async ({
   children,
@@ -58,20 +57,12 @@ const CourseLayout = async ({
       <div className="h-[80px] md:pl-80 fixed inset-y-0 w-full z-50">
         <CourseNavbar course={course} progressCount={progressCount} />
       </div>
-      <div className="hidden md:flex h-full w-80 flex-col fixed inset-y-0 z-40 bg-white">
+      <div className="hidden md:flex h-full w-80 flex-col fixed inset-y-0 z-40 bg-white dark:bg-dark">
         <CourseSidebar course={course} progressCount={progressCount} />
       </div>
       <main className="md:pl-80 h-full pt-[80px] relative">
-        <div className=" inset-0 w-full h-full z-0 fixed bg-white ">
-          <Image
-            src="/bg4.png"
-            alt="Background Image"
-            layout="fill"
-            objectFit="cover"
-            quality={100}
-            unoptimized={true}
-            priority={true}
-          />
+        <div className=" inset-0 w-full h-full z-0 fixed bg-white dark:bg-dark">
+          <ImageToggle />
         </div>
         <div className="relative z-10">{children}</div>
       </main>

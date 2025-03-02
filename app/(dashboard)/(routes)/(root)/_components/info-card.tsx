@@ -15,10 +15,12 @@ export const InfoCard = ({
   label,
 }: InfoCardProps) => {
   return (
-    <div className=" rounded-sm flex items-center gap-x-2 p-3 pl-7 border-[1px] bg-white">
+    <div className=" rounded-sm flex items-center gap-x-2 p-3 pl-7 border-[1px] dark:border-white/20 bg-white dark:bg-dark">
       <IconBadge variant={variant} icon={Icon} size="lg" stroke="thin" />
       <div>
-        <p className="font-semibold text-xl text-darkblue">{label}</p>
+        <p className="font-semibold text-xl text-darkblue dark:text-slate-300">
+          {label}
+        </p>
         <p className="text-gray-500  font-medium">
           {numberOfItems} {numberOfItems === 1 ? "Course" : "Courses"}
         </p>

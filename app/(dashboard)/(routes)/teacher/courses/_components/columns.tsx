@@ -68,7 +68,10 @@ export const columns: ColumnDef<Course>[] = [
 
       return (
         <Badge
-          className={cn("bg-darkgray/80", isPublished && "bg-lightblue/90")}
+          className={cn(
+            "bg-darkgray/80 dark:bg-white/50",
+            isPublished && "bg-lightblue/90 dark:bg-white/90"
+          )}
         >
           {isPublished ? "Published" : "Draft"}
         </Badge>
@@ -83,13 +86,7 @@ export const columns: ColumnDef<Course>[] = [
       return (
         <div className="w-full flex items-center">
           <Link href={`/teacher/courses/${id}`}>
-            <ButtonMotion
-              icon={Pencil}
-              size="small"
-              color="darkblue"
-              text="darkblue"
-              iconSize="small"
-            >
+            <ButtonMotion icon={Pencil} size="small" iconSize="small">
               Edit
             </ButtonMotion>
           </Link>

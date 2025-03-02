@@ -45,8 +45,9 @@ export const CategoryItem = ({
     <button
       onClick={onClick}
       className={cn(
-        "py-2 px-3 text-sm bg-[#ffffff] rounded-sm flex items-center gap-x-1 hover:border-lightblue border-[1px] border-darkblue/20 text-lightblack font-medium transition ",
-        isSelected && "border-lightblue bg-lightblue/5 text-lightblue"
+        "py-2 px-3 text-sm bg-[#ffffff] dark:bg-[#2B2E31] rounded-sm flex items-center gap-x-1 hover:border-lightblue dark:hover:border-lightblue/30 border-[1px] border-darkblue/20 text-lightblack dark:text-gray-300 font-medium transition ",
+        isSelected &&
+          "border-lightblue dark:border-lightblue/30 bg-lightblue/5 dark:bg-[#414248] text-lightblue"
       )}
       type="button"
     >

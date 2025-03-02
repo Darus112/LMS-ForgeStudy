@@ -21,9 +21,12 @@ export const CourseMobileSidebar = ({
   return (
     <Sheet>
       <SheetTrigger className="md:hidden">
-        <AlignJustify className="text-lightblue h-8 w-8 stroke-1" />
+        <AlignJustify className="text-lightblue dark:text-[#898989] h-8 w-8 stroke-1" />
       </SheetTrigger>
-      <SheetContent side="left" className="p-0 bg-white w-2/3 border-none">
+      <SheetContent
+        side="left"
+        className="p-0 bg-white dark:bg-dark w-2/3 border-none"
+      >
         <CourseSidebar course={course} progressCount={progressCount} />
       </SheetContent>
     </Sheet>

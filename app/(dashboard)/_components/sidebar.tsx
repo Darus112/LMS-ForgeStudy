@@ -7,7 +7,7 @@ interface SidebarProps {
 
 export const Sidebar = ({ onClick }: SidebarProps) => {
   return (
-    <div className="h-full flex flex-col overflow-y-auto bg-white border-r-[1px] border-darkblue/40">
+    <div className="h-full flex flex-col overflow-y-auto bg-white dark:bg-dark border-r-[1px] border-darkblue/40 dark:border-white/20">
       <div className=" p-6 flex justify-end md:justify-start">
         <Logo />
       </div>

@@ -23,10 +23,10 @@ export default function ButtonMobileSidebar({
         animate={{ top: isActive ? "-100%" : "0" }}
         transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
       >
-        <div className="w-full h-full  bg-[#4556FB] flex items-center justify-center uppercase">
+        <div className="w-full h-full  bg-[#cfd4ff] dark:bg-[#2B2E31] text-gray-500 dark:text-[#898989] flex items-center justify-center uppercase">
           <p>Menu</p>
         </div>
-        <div className="w-full h-full bg-white text-lightblack flex items-center justify-center uppercase">
+        <div className="w-full h-full bg-white dark:bg-dark text-lightblack dark:text-white flex items-center justify-center uppercase">
           <p>Close</p>
         </div>
       </motion.div>

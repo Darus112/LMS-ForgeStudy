@@ -67,20 +67,15 @@ export function DataTable<TData, TValue>({
           onChange={(event) =>
             table.getColumn("title")?.setFilterValue(event.target.value)
           }
-          className="max-w-sm bg-white rounded-sm border-[1px] border-lightblue/40 focus-visible:ring-0"
+          className="max-w-sm bg-[#E5E6EE] dark:bg-[#202227] rounded-sm focus-visible:ring-0"
         />
         <Link href="/teacher/create">
-          <ButtonMotion
-            icon={Plus}
-            size="small"
-            color="darkblue"
-            text="darkblue"
-          >
+          <ButtonMotion icon={Plus} size="small">
             New course
           </ButtonMotion>
         </Link>
       </div>
-      <div className="bg-white rounded-sm border-[1px] border-darkblue/20">
+      <div className="bg-white dark:bg-dark rounded-sm border-[1px] border-darkblue/20 dark:border-white/20">
         <Table className="font-medium">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
@@ -132,7 +127,7 @@ export function DataTable<TData, TValue>({
       </div>
       <div className="flex items-center justify-end space-x-2 py-4">
         <Button
-          className="bg-lightblue text-white rounded-sm border-none"
+          className="bg-lightblue dark:bg-white/10 text-white rounded-sm border-none"
           variant="outline"
           size="sm"
           onClick={() => table.previousPage()}
@@ -141,7 +136,7 @@ export function DataTable<TData, TValue>({
           Previous
         </Button>
         <Button
-          className="bg-lightblue text-white rounded-sm border-none"
+          className="bg-lightblue dark:bg-white/10 text-white rounded-sm border-none"
           variant="outline"
           size="sm"
           onClick={() => table.nextPage()}

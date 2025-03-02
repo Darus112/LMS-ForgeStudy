@@ -58,7 +58,7 @@ export const ChapterVideoForm = ({
   };
 
   return (
-    <div className="mt-6 p-4 rounded-sm bg-white border-[1px] border-darkblue/20">
+    <div className="mt-6 p-4 rounded-sm bg-white border-[1px] border-darkblue/20 dark:bg-dark dark:border-white/20">
       <div className="font-medium flex items-center justify-between">
         <h1 className="text-xl font-medium">Chapter video</h1>
         <ButtonMotion
@@ -66,8 +66,6 @@ export const ChapterVideoForm = ({
           onClick={toggleEdit}
           size="small"
           iconSize="small"
-          color="darkblue"
-          text="darkblue"
         >
           {isEditing
             ? "Cancel"
@@ -79,8 +77,8 @@ export const ChapterVideoForm = ({
 
       {!isEditing &&
         (!initialData.videoUrl ? (
-          <div className="flex items-center justify-center h-60 bg-lightblue/20 rounded-2xl mt-5">
-            <Video className="h-10 w-10 text-lightblack/80" />
+          <div className="flex items-center justify-center h-60 bg-lightblue/20 rounded-2xl mt-5 dark:bg-white/10">
+            <Video className="h-10 w-10 text-lightblack/80 dark:text-gray-400" />
           </div>
         ) : (
           <div className="relative aspect-video mt-5 rounded-lg overflow-hidden">

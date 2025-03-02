@@ -8,7 +8,7 @@ export const Logo = () => {
         width={100}
         alt="logo"
         src="/logo.svg"
-        className="rounded-none object-contain"
+        className="rounded-none object-contain dark:invert"
       />
     </div>
   );

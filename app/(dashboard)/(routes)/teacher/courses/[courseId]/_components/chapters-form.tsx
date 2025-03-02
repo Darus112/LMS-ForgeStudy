@@ -84,7 +84,7 @@ export const ChaptersForm = ({ initialData, courseId }: ChaptersFormProps) => {
   };
 
   return (
-    <div className="relative mt-6 p-4 rounded-sm bg-white border-[1px] border-darkblue/20">
+    <div className="relative mt-6 p-4 rounded-sm bg-white border-[1px] border-darkblue/20 dark:bg-dark dark:border-white/20">
       {isUpdating && (
         <div className="absolute h-full w-full bg-slate-500/20 top-0 right-0 rounded-xl flex items-center justify-center">
           <Loader2 className="animate-spin h-6 w-6 text-sky-700" />
@@ -97,8 +97,6 @@ export const ChaptersForm = ({ initialData, courseId }: ChaptersFormProps) => {
           onClick={toggleCreating}
           size="small"
           iconSize="small"
-          color="darkblue"
-          text="darkblue"
         >
           {isCreating ? <>Cancel</> : <>Add a chapter</>}
         </ButtonMotion>
@@ -116,7 +114,7 @@ export const ChaptersForm = ({ initialData, courseId }: ChaptersFormProps) => {
                 <FormItem>
                   <FormControl>
                     <Input
-                      className="bg-white border-b-2 rounded-sm border-lightblack"
+                      className="bg-dark/5 dark:bg-white/10 focus-visible:ring-0 rounded-sm"
                       disabled={isSubmitting}
                       placeholder="e.g. 'Introduction to the course'"
                       {...field}
@@ -130,8 +128,6 @@ export const ChaptersForm = ({ initialData, courseId }: ChaptersFormProps) => {
               icon={Plus}
               disabled={!isValid || isSubmitting}
               type="submit"
-              color="darkblue"
-              text="darkblue"
             >
               Create
             </ButtonMotion>

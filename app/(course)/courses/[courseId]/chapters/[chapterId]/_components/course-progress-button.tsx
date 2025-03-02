@@ -57,13 +57,8 @@ export const CourseProgressButton = ({
   const Icon = isCompleted ? XCircle : CheckCircle;
 
   return (
-    <ButtonMotion
-      icon={Icon}
-      onClick={onClick}
-      color={isCompleted ? "grey" : "emerald"}
-      text={isCompleted ? "grey" : "emerald"}
-    >
-      {isCompleted ? "Not completed" : "Mark as complete"}
+    <ButtonMotion icon={Icon} onClick={onClick}>
+      {isCompleted ? "Not completed" : "Mark as completed"}
     </ButtonMotion>
   );
 };

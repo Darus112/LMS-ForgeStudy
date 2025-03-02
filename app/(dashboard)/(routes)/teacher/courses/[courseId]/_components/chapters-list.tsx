@@ -70,7 +70,7 @@ export const ChapterList = ({ items, onReorder, onEdit }: ChapterListProps) => {
                 {(provided) => (
                   <div
                     className={cn(
-                      "flex items-center gap-x-2 bg-darkgray/20 text text-lightblack rounded-sm mb-4 text-sm font-medium",
+                      "flex items-center gap-x-2 bg-darkgray/20 dark:bg-white/50 text text-lightblack rounded-sm mb-4 text-sm font-medium",
                       chapter.isPublished && "bg-lightblue/30"
                     )}
                     ref={provided.innerRef}
@@ -78,7 +78,7 @@ export const ChapterList = ({ items, onReorder, onEdit }: ChapterListProps) => {
                   >
                     <div
                       className={cn(
-                        "px-2 py-3 border-r-2 border-r-white hover:bg-lightblue/40 hover:text-white rounded-l-sm transition",
+                        "px-2 py-3 border-r-2 border-r-white dark:border-r-dark hover:bg-lightblue/40 hover:text-white rounded-l-sm transition",
                         chapter.isPublished && " hover:bg-lightblue/60"
                       )}
                       {...provided.dragHandleProps}
@@ -91,7 +91,8 @@ export const ChapterList = ({ items, onReorder, onEdit }: ChapterListProps) => {
                       <Badge
                         className={cn(
                           "bg-slate-500",
-                          chapter.isPublished && "bg-slate-700"
+                          chapter.isPublished &&
+                            "bg-slate-700 dark:text-gray-200"
                         )}
                       >
                         {chapter.isPublished ? "Published" : "Draft"}
