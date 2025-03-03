@@ -53,7 +53,7 @@ const CourseLayout = async ({
   const progressCount = await getProgress(userId, course.id);
 
   return (
-    <div className="min-h-screen  relative">
+    <div className="min-h-screen relative">
       <div className="h-[80px] md:pl-80 fixed inset-y-0 w-full z-50">
         <CourseNavbar course={course} progressCount={progressCount} />
       </div>
@@ -64,7 +64,7 @@ const CourseLayout = async ({
         <div className=" inset-0 w-full h-full z-0 fixed bg-white dark:bg-dark">
           <ImageToggle />
         </div>
-        <div className="relative z-10">{children}</div>
+        <div className="relative">{children}</div>
       </main>
     </div>
   );

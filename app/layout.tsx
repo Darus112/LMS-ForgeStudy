@@ -26,7 +26,7 @@ export default function RootLayout({
         <body className={raleway.className}>
           <ConfettiProvider />
           <ToasterProvider />
-          <ThemeProvider attribute="class" enableSystem>
+          <ThemeProvider attribute="class" enableSystem defaultTheme="system">
             {children}
           </ThemeProvider>
         </body>

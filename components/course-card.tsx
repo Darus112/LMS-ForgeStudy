@@ -5,7 +5,6 @@ import { useState } from "react";
 import { formatPrice } from "@/lib/format";
 
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 
 import { motion } from "framer-motion";
 
@@ -14,7 +13,6 @@ import { ArrowRight, BookOpen } from "lucide-react";
 import { CourseProgress } from "@/components/course-progress";
 
 import { CourseModal } from "./course-modal";
-import { useAuth } from "@clerk/nextjs";
 
 interface CourseCardProps {
   id: string;
@@ -37,12 +35,8 @@ export const CourseCard = ({
   category,
   description,
 }: CourseCardProps) => {
-  const { userId } = useAuth();
-
   const [isHover, setIsHover] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const router = useRouter();
 
   const handleClick = () => {
     setIsModalOpen(true);

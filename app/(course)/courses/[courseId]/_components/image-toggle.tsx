@@ -4,12 +4,23 @@ import Image from "next/image";
 
 import { useTheme } from "next-themes";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 export const ImageToggle = () => {
-  const { theme } = useTheme();
+  const { theme, systemTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
-  const backgroundImage = theme === "dark" ? "/bg2-dark.png" : "/bg2-light.png";
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
+  const currentTheme = theme === "system" ? systemTheme : theme;
+
+  const backgroundImage =
+    currentTheme === "dark" ? "/bg2-dark.png" : "/bg2-light.png";
   return (
     <Image
       src={backgroundImage}

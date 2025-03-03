@@ -1,17 +1,17 @@
-"use client";
-
 import React from "react";
-import { ScaleLoader } from "react-spinners";
-
-import { useTheme } from "next-themes";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const Loading = () => {
-  const { theme } = useTheme();
-
-  const color = theme === "dark" ? "#D0CECA" : "#1A2FFB";
   return (
-    <div className="flex items-center justify-center h-96">
-      <ScaleLoader margin={3} height={50} color={color} />
+    <div className="p-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12 rounded-md">
+        <Skeleton className="h-28 w-full" />
+        <Skeleton className="h-28 w-full" />
+      </div>
+      <div className="w-full h-full space-y-9">
+        <Skeleton className="w-full h-[400px]" />
+        <Skeleton className="w-full h-[400px]" />
+      </div>
     </div>
   );
 };
